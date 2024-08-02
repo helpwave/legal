@@ -1,0 +1,182 @@
+\documentclass[10pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[ngerman]{babel}
+
+\usepackage[inkscapeformat=png]{svg}
+\usepackage{fancyhdr}
+
+\usepackage{lastpage}
+
+\usepackage{inter}
+\renewcommand\familydefault{\sfdefault}
+
+\usepackage[onehalfspacing]{setspace}
+\usepackage[iso,german]{isodate}
+
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\setcounter{tocdepth}{1}
+\setlength\parindent{0pt}
+
+\usepackage{titlesec}
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection}{0.5em}{}[]
+\titleformat{\subsubsection}[runin]{\normalfont\bfseries}{\thesubsubsection}{0.5em}{}[]
+
+\def\Year{\expandafter\YEAR\the\year}
+\def\YEAR#1#2#3#4{#1#2#3#4}
+
+\fancyhead{}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot{}
+\fancyfoot[L]{\textcolor{gray}{\thepage\space/\space\pageref{LastPage}}}
+\fancyfoot[R]{\textcolor{gray}{\href{https://helpwave.de}{helpwave.de}}}
+
+\begin{document}
+
+\begin{center}
+	\includesvg[width=0.2\linewidth]{logo.svg}\\[4ex]
+	{\Huge \sffamily
+	Nutzungsbedingungen \\
+	\huge App zum Doc \\[1ex] \Large Erbringer-Anwendung}\\[2ex]
+
+	\vspace{1em}
+	{\large
+		helpwave GmbH \\
+		Jülicher Straße 209d \\
+		52070 Aachen \\
+		HRB 27480}\\
+	\vspace{1em}
+	Stand: \today
+\end{center}
+
+\vspace{2ex}
+
+\tableofcontents
+
+\newpage
+
+\section{Verwendete Begrifflichkeiten}
+„Erbringer“ im Sinne dieser Nutzungsbedingungen sind Leistungserbringer im Gesundheitswesen (in der Regel Ärzte oder
+Apotheken), die Inhalte über die App zum Doc für Nutzer bereitstellen oder über die App mit Nutzern kommunizieren. Solche
+„Nutzer“ sind in der Regel Patienten. Der Erbringer verwendet für diese Zwecke eine webbasierte Anwendung der App zum
+Doc (im Folgenden „Erbringer-Anwendung“).
+\section{Geltung der Nutzungsbedingungen}
+Diese Nutzungsbedingungen, die gelegentlichen Veränderungen unterliegen, gelten für alle helpwave-Dienstleistungen
+rund um die Erbringer-Anwendung, die unmittelbar oder mittelbar (d.h. über Dritte) über das Internet, jegliche Art von mobilen Endgeräten oder per E-Mail zur Verfügung gestellt werden.
+Mit dem Zugriff auf unsere (mobile) Webseite und der Nutzung der Erbringer-Anwendung, ganz gleich durch welche Plattform (im Folgenden die „Plattform“ genannt), bestätigt der Erbringer, dass er diese Nutzungsbedingungen gelesen und verstanden hat und diesen zustimmt.
+
+\section{Zustandekommen des Nutzungsvertrags}
+Der Erbringer schließt den Vertrag über die Nutzung der Dienste von helpwave mit der helpwave GmbH.
+Durch den webbasierten Gebrauch der Software erklärt sich der Erbringer mit diesen Nutzungsbedingungen einverstanden
+und erkennt diese ohne Einschränkung verbindlich an.
+\section{Art und Umfang der Erbringer-Anwendung}
+helpwave stellt Erbringern über eine webbasierte Erbringer-Anwendung eine Lösung zur Verfügung, mit der der Erbringer
+seine in der App zum Doc angezeigten Informationen pflegen und Anfragen von Nutzern beantworten kann.
+Der Erbringer kann innerhalb der Erbringer-Anwendung sein Profil in der App zum Doc pflegen. Zu den Informationen, die
+in diesem Profil vorhanden sind, zählen der Name, ein Profilbild, der Name der Organisation, Anschrift sowie Kontaktdaten
+(Telefonnummer, Fax, E-Mail und Internetseite). Weiterhin kann der Erbringer seine Öffnungszeiten einpflegen, sowie Informationen über sein Leistungsspektrum und seine Fachrichtung. Zudem kann der Erbringer Hinweisfenster einblenden, die
+bei einer Anfrage oder bei einem Aufruf des eigenen Profils innerhalb der App angezeigt werden und Standardtexte für den
+Versand an Nutzer definieren.
+Für die Kommunikation mit dem Nutzer kann der Erbringer - bei der Buchung eines Komplett-Paketes - sogenannte Onlineservices freischalten. Dazu zählen die Termin-, Rezept- und Überweisungsanfrage sowie die Möglichkeit der Übermittlung
+von Medikationsplänen und Fotos durch den Nutzer. Die Onlineservices können einzeln aktiviert werden. Für Terminanfragen
+kann der Erbringer zudem Fragen und Antworttypen definieren, die der Nutzer im Rahmen einer solchen Anfrage zu beantworten hat.
+Für Anfragen, die durch Nutzer an den Erbringer gestellt werden, erhält dieser innerhalb der Erbringer-Anwendung Zugriff
+auf einen Anfragen-Bereich, in dem Anfragen aller Nutzer nach Art der Anfrage kategorisiert auflaufen. Hier kann der Erbringer eine Anfrage annehmen oder ablehnen und dem Nutzer zur Anfrage weitere Informationen - wie bspw. das Termindatum
+- mitteilen. Auch kann der Erbringer verschlüsselt über eine Chatfunktion mit dem Nutzer kommunizieren. Bearbeitete Anfragen verbleiben bis zur endgültigen Löschung durch den Erbringer verschlüsselt in einem Archiv.
+Damit die Kommunikation zwischen Nutzer und Erbringer verschlüsselt stattfindet, wird neben der SSL-verschlüsselten
+Übertragung der Anfragen auch eine Verschlüsselung dieser Anfrage nach dem Public-Private-Key-Verfahren durchgeführt.
+Hierzu erzeugt der Erbringer auf seinem Endgerät bei der Ersteinrichtung seines Profils einen privaten und einen öffentlichen Schlüssel. Der öffentliche Schlüssel wird an die Systeme von helpwave übermittelt und dort gespeichert. Anfragen von
+Nutzern werden mit diesem Schlüssel automatisch verschlüsselt und erst danach an die Systeme von helpwave übertragen.
+Der private Schlüssel wird nur auf dem Endgerät des Erbringers erzeugt und ihm dort zum Speichern angeboten. Er wird zu
+keinem Zeitpunkt durch die Erbringer-Anwendung an die Systeme von helpwave übertragen.
+
+\section{Nutzungsgebühren}
+Die Hinterlegung eines Erbringer-Profils ist für den Erbringer kostenpflichtig und erfordert einen gesonderten Vertrag
+zwischen helpwave und dem jeweiligen Erbringer (Nutzungsvertrag).
+helpwave stellt dem Erbringer die Nutzung der Erbringer-Anwendung gegen eine monatliche Lizenzgebühr zur Verfügung. helpwave behält sich Gebührenänderungen vor. Geänderte Gebühren, die für das jeweilige Vertragsverhältnis entscheidend sind, werden dem Nutzer mindestens sechs Wochen vor Inkrafttreten per E-Mail oder postalisch mitgeteilt. Preiserhöhungen bewirken ein außerordentliches Kündigungsrecht mit einer Frist von vier Wochen zum Zeitpunkt des Inkrafttretens der Erhöhung. Die Rechnungen von helpwave sind innerhalb von 14 Tagen und ohne Abzug nach Rechnungseingang zu überweisen. Eine Aufrechnung des Kunden gegenüber Forderungen von helpwave mit anderen als unbestritten oder rechtskräftig festgestellten Forderungen ist ausgeschlossen, es sei denn, die Gegenforderung und die aufgerechnete Hauptforderung sind synallagmatisch miteinander verknüpft. Befindet sich der Kunde mit dem Ausgleich einer Forderung im Verzug, ist helpwave berechtigt, Verzugszinsen in Höhe von drei Prozentpunkten über dem Basiszinssatz gemäß § 288 BGB zu verlangen. Die Geltendmachung eines weiteren Verzugsschadens bleibt davon unberührt.
+
+
+\section{Abfrage und Änderung von personenbezogenen Daten durch den Erbringer}
+Erbringer, die Ihr Profil in der App löschen möchten, können dies erreichen, indem sie den mit helpwave abgeschlossenen
+Nutzungsvertrag kündigen.
+
+\section{Datenschutz}
+Zur Nutzung der Erbringer-Anwendung ist eine Eingabe personenbezogener Daten erforderlich, die den Erbringer gegen-
+über dem Nutzer eindeutig identifiziert. Hierbei handelt es sich um den Namen des Erbringers, seiner Organisation und der
+Anschrift, sowie Telefon, Telefax, E-Mail und Internetadresse.
+Mit einer Anfrage eines Nutzers bei einem Erbringer werden die Anfragedaten in verschlüsselter Form an den Erbringer
+übermittelt (Ende-zu-Ende-Verschlüsselung) und dort ebenso in verschlüsselter Form gespeichert. Antworten des Erbringers werden in gleicher Weise verschlüsselt. Die Verschlüsselung erfolgt während des gesamten Prozesses durch ein Public-
+Private-Key-Verfahren, bei dem der private Schlüssel sich ausschließlich im Besitz des Absenders/Empfängers befindet. Die
+Verschlüsselung erfolgt mit mindestens 2048-Bit (asymmetrisch) und mindestens 56-Bit (symmetrisch). Alle Übertragungen
+erfolgen zudem über eine gesicherte SSL-Verbindung. \\
+
+Weitere Hinweise zum Datenschutz finden Sie hier: \href{https://cdn.helpwave.de/privacy.html}{cdn.helpwave.de/privacy.html}
+
+\section{Zulässige Nutzung}
+Die webbasierte Anwendung für Erbringer, die dazugehörige Webseite (app-zum-doc.de) sowie zugehörige Alias-Domänen,
+die auf app-zum-doc.de weiterleiten, dürfen ausschließlich für die folgenden Zwecke genutzt werden:
+(1.) Anzeigen der Webseite, (2.) Prüfen von Informationen zu dem Leistungsangebot, (3.) Bearbeitung und Beantwortung von Anfragen der Nutzer
+sowie Kommunikation mit diesen (4.) Nutzung weiterer Funktionen, die auf der Webseite verfügbar gemacht werden. Jede
+andere Nutzung der Webseite / Erbringer-Anwendung ohne vorherige schriftliche Zustimmung der helpwave ist untersagt.
+Die Vervielfältigung, Bearbeitung, Verbreitung, öffentliche Wiedergabe oder jede sonstige Form der Nutzung von Inhalten
+der Webseite / Erbringer-Anwendung zu gewerblichen Zwecken ist unzulässig. Ebenso untersagt ist die Verwendung automatisierter Systeme oder automatisierter Software zur Extraktion von Inhalten von der Webseite / Erbringer-Anwendung.
+Auch ist jeder Zugriff auf Inhalte der Webseite Erbringer-Anwendung unzulässig, der nicht über die Benutzeroberfläche der
+Webseite / Erbringer-Anwendung erfolgt.
+Unbeschadet der Geltendmachung sonstiger Rechte behält sich helpwave vor, den Zugang zur Webseite / Erbringer-Anwendung jederzeit zu sperren, wenn gegen diese Nutzungsbedingungen verstoßen wird.
+
+\section{Pflichten des Erbringers}
+\begin{itemize}
+	\item Der Erbringer verpflichtet sich, seine Zugangsdaten zur Oberfläche für die Bearbeitung von Nutzeranfragen streng vertraulich zu behandeln und nicht weiterzugeben. Dies gilt sowohl für den Benutzernamen und das Kennwort, als auch für die
+	      individuelle Schlüsseldatei zur Ver- und Entschlüsselung der Anfragen.
+	\item Der Erbringer verpflichtet sich, über die Erbringer-Anwendung keine Inhalte weiterzuleiten, die rechtswidrig, insbesondere
+	      rassistisch, pornografisch, beleidigend oder verleumderisch sind oder die Rechte Dritter, insbesondere Urheberrechte bzw.
+	      urheberrechtliche Nutzungsrechte verletzen.
+	\item Der Erbringer ist verpflichtet, niemanden mit Kommunikationsversuchen zu belästigen.
+	\item Der Erbringer hat alle Handlungen zu unterlassen, die geeignet sind, die Funktionalität der Erbringer-Anwendung zu beeinträchtigen, insbesondere übermäßig zu belasten.
+	\item Der Erbringer verpflichtet sich, sämtliche Systeme, mit denen auf Inhalte und Kommunikationsfunktionen der Webseite /
+	      App / Erbringer-Anwendung zugegriffen wird, durch Sicherheitsupdates aktuell zu halten.
+	\item Der Erbringer trägt dafür Sorge, sämtliche Systeme und Endgeräte, mit denen auf Inhalte und Kommunikationsfunktionen der Webseite / App / Erbringer-Anwendung zugegriffen wird, durch geeignete Schutzmaßnahmen vor unberechtigten
+	      Zugriffen zu schützen.
+\end{itemize}
+
+\section{Änderung des Leistungsumfangs}
+helpwave behält sich vor, die angebotene Anwendung und zugehörige Dienste jederzeit inhaltlich, grafisch und/oder funktionell durch Updates zu verändern oder zu erweitern.
+
+\section{Zeitliche Verfügbarkeit}
+helpwave wird sich bemühen, die angebotene Anwendung und zugehörige Dienste möglichst unterbrechungsfrei zum Abruf
+anzubieten. Der Erbringer erkennt an, dass helpwave auch bei aller Sorgfalt eine zeitlich ununterbrochene Verfügbarkeit
+seiner Dienste technisch nicht garantieren kann. Insbesondere behält sich helpwave vor, seine Dienste aus Wartungs-, Sicherheits- oder Kapazitätsgründen nach dem Ermessen von helpwave vorübergehend einzuschränken oder auszusetzen. helpwave wird den Kunden über größere geplante Wartungsarbeiten (länger als 30 Minuten) eine Woche im Voraus informieren.
+
+\section{Haftung und Gewährleistungsausschluss von helpwave}
+helpwave haftet nur bei Vorsatz und grober Fahrlässigkeit. Bei leichter Fahrlässigkeit haftet helpwave nur für Verletzungen
+einer wesentlichen vertraglichen Verpflichtung, die erforderlich ist, damit der Vertrag ordnungsgemäß umgesetzt werden
+kann und auf die sich der Erbringer normalerweise verlassen kann. Die Haftung ist auf die vorhersehbaren und vertragstypischen Schäden beschränkt. Insbesondere wird die Haftung für Datenverlust auf den typischen Wiederherstellungsaufwand
+beschränkt, der bei regelmäßiger und gefahrentsprechender Anfertigung von Sicherungskopien eingetreten wäre.
+Die unter vorstehendem Absatz enthaltenen Haftungsbeschränkungen umfassen auch etwaige Ansprüche des Erbringers
+auf den Ersatz solcher Aufwendungen, die er im Vertrauen auf den Erhalt einer vertragsgemäßen Leistung gemacht hat und
+billigerweise machen durfte.
+
+Hingegen haftet helpwave gegenüber Erbringern uneingeschränkt für Schäden aus der Verletzung des Lebens, des Körpers
+oder der Gesundheit. Darüber hinaus haftet helpwave uneingeschränkt für Schäden, die von der Haftung nach zwingend
+geltenden gesetzlichen Vorschriften umfasst werden sowie im Fall der etwaigen Übernahme einer Garantie durch helpwave.
+
+\section{Geistiges Eigentum}
+Alle Urheber-, insbesondere Datenbank-, Marken-, Geschmacksmuster- und andere Rechte zum Schutze geistigen Eigentums
+(ebenso die Anordnung und die Darstellung der Webseite) liegen bei helpwave oder ihren Lizenzgebern. Ohne die vorherige
+schriftliche Zustimmung dürfen die Inhalte der Webseite oder der zugrunde liegende Software-Code weder ganz oder teilweise vervielfältigt, bearbeitet, verbreitet, öffentlich wiedergegeben noch in sonstiger Form genutzt werden.
+
+\section{Sonstiges}
+helpwave behält sich vor, diese Nutzungsbedingungen jederzeit ohne Nennung von Gründen zu verändern oder zu erweitern,
+es sei denn, das ist für den Erbringer nicht zumutbar. helpwave wird den Erbringer über jede Änderung der Nutzungsbedingungen rechtzeitig benachrichtigen. Widerspricht der Nutzer der Geltung der neuen Nutzungsbedingungen nicht innerhalb
+von sechs (6) Wochen nach der Benachrichtigung, gelten die geänderten Nutzungsbedingungen als vom Erbringer angenommen. helpwave wird den Erbringer in der Benachrichtigung auf sein Widerspruchsrecht und die Bedeutung der Widerspruchsfrist hinweisen.
+Soweit nichts anderes vereinbart ist, kann der Erbringer alle Erklärungen an helpwave per E-Mail oder per Brief an helpwave
+übermitteln. helpwave kann Erklärungen gegenüber dem Erbringer per E-Mail oder Brief an die Adressen übermitteln, die der
+Erbringer als aktuelle Kontaktdaten in seinem Konto angegeben hat.
+Sollten einzelne Regelungen dieser Nutzungsbedingungen unwirksam sein oder werden, wird dadurch die Wirksamkeit der
+übrigen Regelungen nicht berührt. \\
+Erfüllungsort und Gerichtsstand ist der Sitz von helpwave.
+Es gilt deutsches Recht.
+
+\end{document}
