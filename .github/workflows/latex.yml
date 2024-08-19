@@ -2,59 +2,80 @@ name: LaTeX to PDF
 
 on: [push, pull_request]
 
+env:
+  OUTPUT_DIR: "output"
+  LATEX_ROOT_FILES: |
+    agb_app_zum_doc_patient.tex
+    agb_mediquu_connect.tex
+    agb_app_zum_doc.tex
+    agb_mediquu_netzmanager.tex
+    agb_mediquu_chat.tex
+
 jobs:
-  build:
+  compile_latex:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install Inter font
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y unzip fontconfig wget
-        mkdir -p ~/.local/share/fonts
-        wget -qO Inter.zip https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip
-        unzip -o Inter.zip -d ~/.local/share/fonts
-        fc-cache -f -v
+      - name: Compile LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: ${{ env.LATEX_ROOT_FILES }}
+          extra_system_packages: "inkscape"
+          latexmk_shell_escape: true
 
-    - name: Compile LaTeX documents
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: |
-          agb_app_zum_doc_patient.tex
-          agb_mediquu_connect.tex
-          agb_app_zum_doc.tex
-          agb_mediquu_netzmanager.tex
-          agb_mediquu_chat.tex
-        extra_system_packages: "inkscape"
-        latexmk_shell_escape: true
+      - name: Create output directory and move PDFs
+        run: |
+          mkdir -p ${{ env.OUTPUT_DIR }}
+          mv ./*.pdf ${{ env.OUTPUT_DIR }}
+          echo ${{ github.sha }} > ${{ env.OUTPUT_DIR }}/version.txt
 
-    - name: Generate output directory
-      run: |
-        mkdir -p output
-        mv ./*.pdf output
-        echo ${{ github.sha }} > output/version.txt
+      - name: Upload PDFs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdfs
+          path: ${{ env.OUTPUT_DIR }}
 
-    - name: Upload to cdn
-      uses: ryand56/r2-upload-action@latest
-      with:
-        r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
-        r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
-        r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        r2-bucket: ${{ secrets.R2_BUCKET }}
-        source-dir: output
-        destination-dir: ${{ github.sha }}
+  upload_to_cdn:
+    runs-on: ubuntu-latest
+    needs: compile_latex
+    steps:
+      - name: Download PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: pdfs
+          path: ${{ env.OUTPUT_DIR }}
 
-    - name: Release on cdn (on main)
-      if: github.ref == 'refs/heads/main'
-      uses: ryand56/r2-upload-action@latest
-      with:
-        r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
-        r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
-        r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        r2-bucket: ${{ secrets.R2_BUCKET }}
-        source-dir: output
-        destination-dir: main
-        keep-file-fresh: true
+      - name: Upload to CDN
+        uses: ryand56/r2-upload-action@latest
+        with:
+          r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
+          r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
+          r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          r2-bucket: ${{ secrets.R2_BUCKET }}
+          source-dir: ${{ env.OUTPUT_DIR }}
+          destination-dir: ${{ github.sha }}
+
+  release_on_cdn:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: compile_latex
+    steps:
+      - name: Download PDFs
+        uses: actions/download-artifact@v4
+        with:
+          name: pdfs
+          path: ${{ env.OUTPUT_DIR }}
+
+      - name: Release on CDN
+        uses: ryand56/r2-upload-action@latest
+        with:
+          r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
+          r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
+          r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          r2-bucket: ${{ secrets.R2_BUCKET }}
+          source-dir: ${{ env.OUTPUT_DIR }}
+          destination-dir: main
+          keep-file-fresh: true
+
