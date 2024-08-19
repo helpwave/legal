@@ -31,9 +31,17 @@ jobs:
         extra_system_packages: "inkscape"
         latexmk_shell_escape: true
 
-    - name: Upload PDFs
-      uses: actions/upload-artifact@v3
-      with:
-        name: pdfs
-        path: ./*.pdf
+    - name: Generate output directory
+      run: |
+        mkdir -p output
+        mv ./*.pdf output/
 
+    - name: Upload to cdn
+      uses: ryand56/r2-upload-action@latest
+      with:
+        r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
+        r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
+        r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        r2-bucket: ${{ secrets.R2_BUCKET }}
+        source-dir: ./output
+        destination-dir: ${{ github.sha }}
