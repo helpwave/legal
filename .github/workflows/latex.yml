@@ -1,16 +1,39 @@
-name: Build AVV LaTeX document
-on: [push]
+name: LaTeX to PDF
+
+on: [push, pull_request]
+
 jobs:
-  build_latex:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v1
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@master
-        with:
-          root_file: avv.tex
-      - uses: actions/upload-artifact@v1
-        with:
-          name: avv.pdf
-          path: document.pdf
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install Inter font
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y unzip fontconfig wget
+        mkdir -p ~/.local/share/fonts
+        wget -qO Inter.zip https://github.com/rsms/inter/releases/download/v3.19/Inter-3.19.zip
+        unzip -o Inter.zip -d ~/.local/share/fonts
+        fc-cache -f -v
+
+    - name: Compile LaTeX documents
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: |
+          agb_app_zum_doc_patient.tex
+          agb_mediquu_connect.tex
+          agb_app_zum_doc.tex
+          agb_mediquu_netzmanager.tex
+          agb_mediquu_chat.tex
+        extra_system_packages: "inkscape"
+        latexmk_shell_escape: true
+
+    - name: Upload PDFs
+      uses: actions/upload-artifact@v3
+      with:
+        name: pdfs
+        path: ./*.pdf
+
