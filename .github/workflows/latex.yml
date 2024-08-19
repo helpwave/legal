@@ -34,7 +34,7 @@ jobs:
     - name: Generate output directory
       run: |
         mkdir -p output
-        mv ./*.pdf output/
+        mv ./*.pdf output
 
     - name: Upload to cdn
       uses: ryand56/r2-upload-action@latest
@@ -43,7 +43,7 @@ jobs:
         r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
         r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         r2-bucket: ${{ secrets.R2_BUCKET }}
-        source-dir: ./output/
+        source-dir: output
         destination-dir: ${{ github.sha }}
 
     - name: Release on cdn (on main)
@@ -54,6 +54,6 @@ jobs:
         r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
         r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         r2-bucket: ${{ secrets.R2_BUCKET }}
-        source-dir: ./output/
+        source-dir: output
         destination-dir: main
         keep-file-fresh: true
