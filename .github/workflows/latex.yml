@@ -35,6 +35,7 @@ jobs:
       run: |
         mkdir -p output
         mv ./*.pdf output
+        echo ${{ github.sha }} > output/version.txt
 
     - name: Upload to cdn
       uses: ryand56/r2-upload-action@latest
