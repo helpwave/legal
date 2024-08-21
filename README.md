@@ -4,6 +4,7 @@ This repository contains all public available legal documents of the helpwave Gm
 Such as
 - Terms and Conditions (AGB)
 - Data Processing Agreement (AVV)
+- Non-Disclosure Agreement (NDA)
 for helpwave's product portfolio.
 
 ## reasoning
