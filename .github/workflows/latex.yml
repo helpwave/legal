@@ -10,6 +10,7 @@ env:
     agb_app_zum_doc.tex
     agb_mediquu_netzmanager.tex
     agb_mediquu_chat.tex
+    nda.tex
 
 jobs:
   compile_latex:
